@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class AdminLoginController extends Controller
 {
@@ -18,7 +19,7 @@ class AdminLoginController extends Controller
     }
 
 
-    public function login() {
+    public function login(Request $request) {
         
         // validate the form data
         $this->validate($request , [
