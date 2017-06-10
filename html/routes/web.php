@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 
 // Since they all start with /admin ... let's group them
@@ -26,6 +27,7 @@ Route::prefix('admin')->group(function(){
     Route::post('/login' , 'Auth\AdminLoginController@login')->name('admin.login.submit');
     // Be sure to have that one at the end ... they will be caught if it's placed first 
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/logout','Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
 
